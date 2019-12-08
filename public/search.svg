@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M14.2970563,12 L16.3819138,14.2315473 C16.8173917,14.6976653 16.8050351,15.4250721 16.3539769,15.8761304 C15.9222169,16.3078903 15.2221958,16.3078903 14.7904358,15.8761304 C14.781583,15.8672776 14.7728813,15.8582751 14.7643343,15.8491267 L12.6794768,13.6175795 C13.0973943,13.4932635 13.4244614,13.3059302 13.6606781,13.0555795 C13.8968948,12.8052289 14.1090209,12.453369 14.2970563,12 Z M7.2,0 C11.1766219,0 14.4,3.22337812 14.4,7.2 C14.4,11.1766219 11.1766219,14.4 7.2,14.4 C3.22337812,14.4 0,11.1766219 0,7.2 C0,3.22337812 3.22337812,0 7.2,0 Z M7.2,2.4 C4.553125,2.4 2.4,4.553125 2.4,7.2 C2.4,9.846875 4.553125,12 7.2,12 C9.846875,12 12,9.846875 12,7.2 C12,4.553125 9.846875,2.4 7.2,2.4 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="search">
+            <g id="Icon" transform="translate(0.400000, 0.400000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Shape" fill="#969EA7" xlink:href="#path-1"></use>
+                <g id="-â³ð¨swatch" mask="url(#mask-2)" fill="#9C8C9B">
+                    <g transform="translate(-2.400000, -2.400000)" id="Rectangle-2">
+                        <rect x="0" y="0" width="21.6" height="21.6"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
