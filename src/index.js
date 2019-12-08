@@ -5,7 +5,20 @@ import people from "./data/people.json";
 
 import "./styles.css";
 
-class App extends React.Component {
+class App extends React.Component{
+  render(){
+    return(
+      <div>
+        <ContactsPage ref={instance => { this.contacts = instance; }} />
+        <NewContactPage handleSubmit={e => this.contacts.add(e) } />
+      </div>
+      
+    )
+  }
+}
+
+
+class ContactsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -48,13 +61,12 @@ class App extends React.Component {
           <img className="icon-large" src="../add-contact.svg" alt="icon" />
         </div>
         <SearchBar handleSearch={this.search} />
-        <PeopleList people={this.state.people} search={this.state.search} />
-        <AddPerson handleSubmit={this.add} />
-        {/* <ContactsUI /> */}
+        <PeopleList people={this.state.people} search={this.state.search} />    
       </div>
     );
   }
 }
+
 
 class PeopleList extends React.Component {
   uniqueID = () => {
@@ -143,11 +155,6 @@ class PeopleList extends React.Component {
 }
 
 class SearchBar extends React.Component {
-  //   <div className="search-box">
-  //   <img src="../search.svg" />
-  //   <input className="searching" placeholder="Name or phone number" />
-  // </div>
-
   render() {
     return (
       <div className="search-box">
@@ -163,15 +170,6 @@ class SearchBar extends React.Component {
 }
 
 class Person extends React.Component {
-  // <h2>B</h2>
-  // <div className="contact-item">
-  //   <img className="avatar" src="../pic8.png" />
-  //   <div className="info">
-  //     <p className="_20px">John Doe</p>
-  //     <p className="_14px">333 4567111</p>
-  //   </div>
-  // </div>
-
   render() {
     return (
       <div>
@@ -195,7 +193,7 @@ class Person extends React.Component {
   }
 }
 
-class AddPerson extends React.Component {
+class NewContactPage extends React.Component {
   UNSAFE_componentWillMount() {
     this.setState({
       firstName: "",
