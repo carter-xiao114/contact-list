@@ -16,37 +16,11 @@ class ContactsPage extends React.Component {
     };
   }
 
-  // UNSAFE_componentWillMount() {
-  //   people.forEach(person => this.add(person));
-  // }
-
   search = e => {
     this.setState({ search: e.target.value });
     // console.log(e.target.value)
   };
-
-  // randomPic = () => {
-  //   return Math.floor(Math.random() * 16) + 1;
-  // };
-
-  // uniqueID = () => {
-  //   return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-  // };
-
-  // add = newPerson => {
-  //   var arr = this.state.people;
-  //   var profile = {
-  //     key: this.uniqueID(),
-  //     firstName: newPerson.firstName,
-  //     lastName: newPerson.lastName,
-  //     phone: newPerson.phone,
-  //     avatar: "../pic" + this.randomPic() + ".png"
-  //   };
-  //   arr.push(profile);
-  //   this.setState({ people: arr });
-  //   console.log(profile)
-  // };
-
+  
   render() {
     return (
       <div>

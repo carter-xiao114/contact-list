@@ -42,20 +42,11 @@ class App extends React.Component{
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
   };
 
-
-  // onClick = (newPerson) => {
-  //   // this.child.current.add(newPerson);
-  //   this.setState({person:newPerson})
-  // };
-
   
 
   render(){
     return(
-      // <div>
-      //   <ContactsPage ref={this.child} />
-      //   <NewContactPage handleSubmit={newPerson => this.onClick(newPerson) } />
-      // </div>
+
       <Router>
         <div>
           <Route exact path="/" 
@@ -64,15 +55,6 @@ class App extends React.Component{
             render={()=> <NewContactPage handleSubmit={newPerson => this.add(newPerson) } />} />
         </div>
       </Router>
-
-      // <Router>
-      //   <div>
-      //     <Route exact path="/" 
-      //       render={()=> <ContactsPage ref={instance => { this.contacts = instance; }} />} />
-      //     <Route path="/add" 
-      //       render={()=> <NewContactPage handleSubmit={e => this.contacts.add(e) } />} />
-      //   </div>
-      // </Router>
     )
   }
 }
