@@ -4,43 +4,48 @@ import Ripple from "react-ripples";
 import people from "./data/people.json";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import "./styles.css";
+// import "./styles.css";
 
 
 class ContactsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      people: [],
+      people: this.props.people,
       search: ""
     };
   }
 
-  UNSAFE_componentWillMount() {
-    people.forEach(person => this.add(person));
-  }
+  // UNSAFE_componentWillMount() {
+  //   people.forEach(person => this.add(person));
+  // }
 
   search = e => {
     this.setState({ search: e.target.value });
     // console.log(e.target.value)
   };
 
-  randomPic = () => {
-    return Math.floor(Math.random() * 16) + 1;
-  };
+  // randomPic = () => {
+  //   return Math.floor(Math.random() * 16) + 1;
+  // };
 
-  add = newPerson => {
-    var arr = this.state.people;
-    var profile = {
-      firstName: newPerson.firstName,
-      lastName: newPerson.lastName,
-      phone: newPerson.phone,
-      avatar: "../pic" + this.randomPic() + ".png"
-    };
-    arr.push(profile);
-    this.setState({ people: arr });
-    // console.log(profile)
-  };
+  // uniqueID = () => {
+  //   return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  // };
+
+  // add = newPerson => {
+  //   var arr = this.state.people;
+  //   var profile = {
+  //     key: this.uniqueID(),
+  //     firstName: newPerson.firstName,
+  //     lastName: newPerson.lastName,
+  //     phone: newPerson.phone,
+  //     avatar: "../pic" + this.randomPic() + ".png"
+  //   };
+  //   arr.push(profile);
+  //   this.setState({ people: arr });
+  //   console.log(profile)
+  // };
 
   render() {
     return (
@@ -60,9 +65,6 @@ class ContactsPage extends React.Component {
 
 
 class PeopleList extends React.Component {
-  uniqueID = () => {
-    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
-  };
 
   // delete = (index) => {}
 
@@ -94,7 +96,7 @@ class PeopleList extends React.Component {
   personHTML = (e, i) => {
     return (
       <Person
-        key={this.uniqueID()}
+        // key={this.uniqueID()}
         firstName={e.firstName}
         lastName={e.lastName}
         phone={e.phone}

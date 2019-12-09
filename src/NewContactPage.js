@@ -4,7 +4,7 @@ import Ripple from "react-ripples";
 import people from "./data/people.json";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import "./styles.css";
+// import "./styles.css";
 
 
 class NewContactPage extends React.Component {
@@ -25,6 +25,7 @@ class NewContactPage extends React.Component {
   };
 
   submit = e => {
+    // console.log(1)
     e.preventDefault();
     this.props.handleSubmit(this.state);
   };
@@ -33,17 +34,21 @@ class NewContactPage extends React.Component {
     return (
       <div>
         <div className="header-w-back">
-        <Link to="/">
+          <Link to="/">
             <div className="label-link">
               <img  src="../back.svg" alt="icon_large"/>
               {/* <p className="label-link-text">Back</p> */}
               <h2 className="as-heading">New Contact</h2>   
             </div>
           </Link>
-          <div className="label-btn" onClick={this.submit}>
-            <img className="icon" src="../tick.svg" alt="icon"/>
-            <p className="label-text">Done</p>
-          </div> 
+          
+            <div className="label-btn" onClick={this.submit}>
+            
+              <img className="icon" src="../tick.svg" alt="icon"/>
+              <Link to="/">
+              <p className="label-text">Done</p>
+              </Link>
+            </div> 
         </div>
         <div className="new-contact-layout">
           <div className="greeting-avatar">
