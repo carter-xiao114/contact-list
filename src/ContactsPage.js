@@ -16,11 +16,17 @@ class ContactsPage extends React.Component {
     };
   }
 
+  logSelectedPerson(path){
+    // console.log(id);
+    this.props.pathFormat(path)
+  }
+
   search = e => {
     this.setState({ search: e.target.value });
     // console.log(e.target.value)
   };
-  
+
+
   render() {
     return (
       <div>
@@ -31,7 +37,7 @@ class ContactsPage extends React.Component {
           </Link>
         </div>
         <SearchBar handleSearch={this.search} />
-        <PeopleList people={this.state.people} search={this.state.search} />    
+        <PeopleList people={this.state.people} search={this.state.search} logSelectedPerson={id => this.logSelectedPerson(id)} />    
       </div>
     );
   }
@@ -39,10 +45,14 @@ class ContactsPage extends React.Component {
 
 
 class PeopleList extends React.Component {
+  constructor(props){
+    super()
+  }
 
   // delete = (index) => {}
 
   // update = (index) => {}
+
 
   filtering(search) {
     return this.props.people.filter((person, i) => {
@@ -70,11 +80,12 @@ class PeopleList extends React.Component {
   personHTML = (e, i) => {
     return (
       <Person
-        // key={this.uniqueID()}
+        id={e.key}
         firstName={e.firstName}
         lastName={e.lastName}
         phone={e.phone}
         avatar={e.avatar}
+        logSelectedPerson={this.props.logSelectedPerson}
       />
     );
   };
@@ -90,7 +101,7 @@ class PeopleList extends React.Component {
       //first char will always be on top
       if (i === 0) {
         return (
-          <div>
+          <div key={e.key}>
             <h2>{e.firstName.substr(0, 1)}</h2>
             {this.personHTML(e, i)}
           </div>
@@ -103,14 +114,14 @@ class PeopleList extends React.Component {
         if (a !== b) {
           // console.log(a.substr(0, 1))
           return (
-            <div>
+            <div key={e.key}>
               <h2>{a.substr(0, 1)}</h2>
               {this.personHTML(e, i)}
             </div>
           );
           // for the rest of the list
         } else {
-          return <div>{this.personHTML(e, i)}</div>;
+          return <div key={e.key}>{this.personHTML(e, i)}</div>;
         }
       }
     });
@@ -137,11 +148,24 @@ class SearchBar extends React.Component {
 }
 
 class Person extends React.Component {
+  url = (path) => {
+    return "/"+path
+  }
+
+  path = () => {
+    return (this.props.firstName+"-"+this.props.lastName.substr(0, 1)+"-"+this.props.id).toLowerCase();
+  }
+  
   render() {
     return (
       <div>
+        {/* <Link to={this.path(this.props.firstName)}> 
+      */}
+        
         <Ripple>
-          <div className="contact-item">
+          {/* <div className="contact-item" onClick={()=> this.props.logSelectedPerson(this.props.id)}> */}
+          <Link to={this.url(this.path())}>
+          <div className="contact-item" onClick={()=> this.props.logSelectedPerson(this.path())}>
             <img
               className="avatar"
               src={this.props.avatar}
@@ -154,7 +178,9 @@ class Person extends React.Component {
               <p className="_14px">{this.props.phone}</p>
             </div>
           </div>
+          </Link>
         </Ripple>
+        
       </div>
     );
   }
